@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import usuarioRouter from './modules/usuários/usuário.routes.js';
 
 const router = Router();
 
@@ -13,5 +14,7 @@ router.get('/health', (_req, res) => {
     status: 'ok'
   });
 });
+
+router.use("/usuarios",usuarioRouter);
 
 export default router;
