@@ -1,10 +1,11 @@
 import { response, type Request, type Response } from "express";
 import Usuario from "./usuário.modules.js"
+import UsuarioService from "./usuários.service.js"
 
 
 class UsuarioController {
     public async findUsers(req:Request, res: Response){
-        const users = await Usuario.find();
+        const users = await UsuarioService.findUser();
         
         res.status(200).json(users);
     }
