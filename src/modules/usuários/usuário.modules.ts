@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+
+
 const userSchema = new mongoose.Schema({
     nome: {
         type: String,
@@ -23,5 +25,7 @@ const userSchema = new mongoose.Schema({
         required: true
     }
 }) 
+
+
 
 export default mongoose.model("Usuario",userSchema);
