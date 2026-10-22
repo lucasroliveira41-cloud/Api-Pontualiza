@@ -1,24 +1,23 @@
-import mongoose from "mongoose";
+import mongoose, {Schema} from "mongoose";
+import type { Iusuario } from "./usuário.types.js";
 
 
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema<Iusuario>({
     nome: {
         type: String,
         required: true,
         trim: true
     },
-    CPF: {
-        type: Number,
-        required: true
-    },
-    cargo: {
+    tipo: {
         type: String,
         required: true,
         trim: true
     },
     status: {
         type: String,
+        required: true,
+        trim: true
     },
     id_empresa: {
         type: Number,
@@ -28,4 +27,4 @@ const userSchema = new mongoose.Schema({
 
 
 
-export default mongoose.model("Usuario",userSchema);
+export default mongoose.model<Iusuario>("Usuario",userSchema);

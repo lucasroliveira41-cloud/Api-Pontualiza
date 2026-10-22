@@ -1,27 +1,38 @@
 import mongoose from "mongoose";
+import type { Ifunc } from "./func.types.js";
 
-const funcSchema = new mongoose.Schema({
+const funcSchema = new mongoose.Schema<Ifunc>({
     nome: {
         type: String,
         required: true,
         trim: true
     },
-    CPF: {
-        type: Number,
-        required: true
+    email: {
+        type: String,
+        required: true,
+        trim: true
     },
     cargo: {
         type: String,
         required: true,
         trim: true
     },
-    status: {
-        type: String,
-    },
-    id_empresa: {
-        type: Number,
+    ativo: {
+        type: Boolean,
         required: true
-    }
-}) 
+    },
+    matricula: {
+        type: Number,
+        unique: true,
+        required: true
+    },
 
-export default mongoose.model("Funcionario",funcSchema);
+},
+
+    {
+        timestamps: true,
+    }
+
+); 
+
+export default mongoose.model<Ifunc>("Funcionario",funcSchema);

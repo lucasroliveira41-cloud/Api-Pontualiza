@@ -11,13 +11,11 @@ class UsuarioController {
     }
 
     public async createUsers (req:Request, res:Response){
-        const users = req.body;
-
-        const newUsers = await Usuario.create(users);
-
-        return res.status(201).json(newUsers);
-
+        const { nome, tipo, status, id_empresa } = req.body;
         
+        const newUser = await UsuarioService.crateUser({nome, tipo, status, id_empresa});
+
+        return res.status(201).json(newUser);
     }
 }
 
