@@ -1,5 +1,6 @@
+import { deflate } from "node:zlib";
 import Funcionario from "./func.modules.js"
-import type { Ifunc, IcreateFuncDTO } from "./func.types.js";
+import type { Ifunc, IcreateFuncDTO, IupdateFuncDTO } from "./func.types.js";
 
 class FuncService {
     public async findFunc(){
@@ -18,9 +19,20 @@ class FuncService {
         return await novoFunc;
     }
 
-    
+    public async findFuncById (id:string){
+        return await Funcionario.findById(id);
+    }
 
+    public async updateFuncService (id:string, data:IupdateFuncDTO){
+        return await Funcionario.findByIdAndUpdate(id,data,{
+            returnDocument: 'after',
+            runValidators: true
+        });
+    }
 
+    public async deleteFunc(id:string){
+        return Funcionario.findByIdAndDelete(id);
+    }
 }
 
 export default new FuncService;

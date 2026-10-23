@@ -13,3 +13,11 @@ export interface Ifunc{
     cargo: string
     ativo: boolean
 }
+
+export interface IupdateFuncDTO{
+    nome?: string,
+    email?: string,
+    matricula: number,
+    cargo?: string
+    ativo?: boolean
+}
