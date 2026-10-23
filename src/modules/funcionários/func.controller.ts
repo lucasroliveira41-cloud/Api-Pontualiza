@@ -21,15 +21,17 @@ class FuncController {
     public async findUsersById (req:Request, res: Response){
         const id = req.params.id ?? {};
 
+
         if(!id || typeof id !== "string"){
             return res.status(400).json({
                 menssage: "id invalido"
             });
         };
 
-        const funcId = FuncService.findFuncById(id);
+        const funcionario = await FuncService.findFuncById(id);
 
-        return res.status(200).json(funcId);
+
+        return res.status(200).json(funcionario);
     }
 
     public async updateUser(req:Request, res: Response){
