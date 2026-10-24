@@ -9,7 +9,7 @@ export interface Iponto{
 }
 
 export interface IcreatePontoDTO{
-    funcionarioId: string,
+    funcionarioId: mongoose.Schema.Types.ObjectId,
     tipo: string,
     dataHora: Date,
     origem: string,
@@ -17,8 +17,8 @@ export interface IcreatePontoDTO{
 }
 
 export interface IupdatePontoDTO{
-    funcionarioId: string,
-    tipo: string,
+    funcionarioId: mongoose.Schema.Types.ObjectId,
+    tipo?: string,
     dataHora?: Date,
     origem?: string,
     observacao?: string

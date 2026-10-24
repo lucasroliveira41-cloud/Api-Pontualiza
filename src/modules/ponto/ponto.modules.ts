@@ -1,12 +1,11 @@
-import monggose from "mongoose"
-import type {Iponto} from "./ponto.types.js"
+import type {Iponto} from "./ponto.types.js";
 import mongoose from "mongoose";
-import Funcionario from "./funcionários/func.modules.js";
 
-const PontoSchema = new monggose.Schema<Iponto>({
+const PontoSchema = new mongoose.Schema<Iponto>({
     funcionarioId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Funcionario"
+        ref: "Funcionario",
+        required: true
     },
     tipo: {
         type: String,
@@ -15,8 +14,7 @@ const PontoSchema = new monggose.Schema<Iponto>({
     },
     dataHora: {
         type: Date,
-        default: Date.now,
-        required: true
+        default: Date.now
     },
     origem: {
         type: String,
@@ -28,4 +26,4 @@ const PontoSchema = new monggose.Schema<Iponto>({
     }
 });
 
-export default monggose.model<Iponto>("Ponto",PontoSchema);
+export default mongoose.model<Iponto>("Ponto",PontoSchema);

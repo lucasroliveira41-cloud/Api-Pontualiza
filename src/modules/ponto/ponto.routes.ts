@@ -1,8 +1,10 @@
 import { Router } from "express";
 import PontoController from "./ponto.controller.js";
 
-const pontoRouter = Router();
+const PontoRouter = Router();
 
-pontoRouter.post("/ponto");
+PontoRouter.post("/",PontoController.createPonto);
+PontoRouter.put("/:id",PontoController.updatePonto);
+PontoRouter.get("/",PontoController.consulta);
 
-export default pontoRouter;
+export default PontoRouter;

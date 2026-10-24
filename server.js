@@ -3,7 +3,7 @@ import express from 'express'
 
 const app = express()
 
-app.get('/usuarios', (req, res) => {
+app.get('/teste', (req, res) => {
     res.send('ok, deu bom')
 })
 
