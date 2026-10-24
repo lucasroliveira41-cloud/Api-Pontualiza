@@ -1,4 +1,4 @@
-import { response, type Request, type Response } from "express";
+import { type Request, type Response } from "express";
 import Funcionario from "./func.modules.js"
 import FuncService from "./func.service.js"
 
