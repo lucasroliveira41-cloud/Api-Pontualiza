@@ -1,7 +1,7 @@
 import type mongoose from "mongoose"
 
 export interface Iponto{
-    funcionarioId: mongoose.Schema.Types.ObjectId,
+    funcionarioId: string,
     tipo: string,
     dataHora: Date,
     origem: string,
@@ -9,7 +9,7 @@ export interface Iponto{
 }
 
 export interface IcreatePontoDTO{
-    funcionarioId: mongoose.Schema.Types.ObjectId,
+    funcionarioId: string,
     tipo: string,
     dataHora: Date,
     origem: string,
@@ -17,7 +17,7 @@ export interface IcreatePontoDTO{
 }
 
 export interface IupdatePontoDTO{
-    funcionarioId: mongoose.Schema.Types.ObjectId,
+    funcionarioId: string,
     tipo?: string,
     dataHora?: Date,
     origem?: string,

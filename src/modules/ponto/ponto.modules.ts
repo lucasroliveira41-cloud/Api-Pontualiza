@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const PontoSchema = new mongoose.Schema<Iponto>({
     funcionarioId:{
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: "Funcionario",
         required: true
     },

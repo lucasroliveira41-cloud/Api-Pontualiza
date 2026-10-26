@@ -18,8 +18,8 @@ router.get('/health', (_req, res) => {
   });
 });
 
-router.use("/func",FuncRouter);
-router.use("/func/ponto",PontoRouter);
+router.use("/funcionario",FuncRouter);
+router.use("/funcionario_ponto",PontoRouter);
 router.use("/usuario",FuncRouter);
 
 export default router;
