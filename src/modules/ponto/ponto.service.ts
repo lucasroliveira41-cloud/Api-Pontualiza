@@ -29,6 +29,10 @@ class PontoService{
     public async deletePonto(id:string){
         return await Ponto.findByIdAndDelete(id);
     }
+
+    public async consultaPontoByFuncId(id:string){        
+        return await Ponto.findOne({funcionarioId: id});
+    }
 }
 
 export default new PontoService();
