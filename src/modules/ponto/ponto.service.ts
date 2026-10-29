@@ -31,7 +31,7 @@ class PontoService{
     }
 
     public async consultaPontoByFuncId(id:string){        
-        return await Ponto.findOne({funcionarioId: id});
+        return await Ponto.find({funcionarioId: id});
     }
 }
 
