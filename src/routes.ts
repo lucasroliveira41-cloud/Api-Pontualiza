@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import FuncRouter from './modules/funcionários/func.routes.js';
 import usuarioRouter from './modules/usuários/usuário.routes.js';
-import pontoRouter from './modules/ponto/ponto.routes.js';
+import AdminRouter from './modules/administrador/admin.routes.js';
 import PontoRouter from './modules/ponto/ponto.routes.js';
 
 const router = Router();
@@ -19,6 +19,7 @@ router.get('/health', (_req, res) => {
 });
 
 router.use("/funcionario",FuncRouter);
+router.use("/Administrador",AdminRouter);
 router.use("/funcionario_ponto",PontoRouter);
 router.use("/usuario",FuncRouter);
 
