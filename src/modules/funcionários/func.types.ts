@@ -1,3 +1,5 @@
+import type { Iponto } from "../ponto/ponto.types.js"
+
 export interface IcreateFuncDTO{
     nome: string,
     email: string,

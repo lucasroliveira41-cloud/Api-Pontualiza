@@ -1,16 +1,26 @@
 import type { Iponto,IcreatePontoDTO,IupdatePontoDTO } from "./ponto.types.js";
 import Ponto from "./ponto.modules.js"
-import { describe } from "node:test";
 
 class PontoService{
     public async novoRegistro(data:IcreatePontoDTO){
+        if(
+            data.origem.tipoRegistro === "remoto" &&
+            !data.origem.local?.trim()
+        ){
+            throw new Error("O local é obrigatório para registros remotos")
+        }
+        
         const registro = await Ponto.create({
             funcionarioId: data.funcionarioId,
             tipo: data.tipo,
             dataHora: new Date(),
-            origem: data.origem,
-            observacao: data.observacao ?? ""
-        });
+            observacao: data.observacao ?? "",
+            origem: {
+                tipoRegistro: data.origem.tipoRegistro,
+                ...(data.origem.tipoRegistro === "remoto" && {
+                    local: data.origem.local?.trim()
+                })
+        }});
 
         return registro;
     }
