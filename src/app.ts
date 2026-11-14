@@ -1,12 +1,25 @@
 import express from 'express';
+import { type Express} from 'express';
 import cors from 'cors';
-import routes from './routes.js';
+import router from './routes.js';
 
-const app = express();
+class App {
+    public server: Express;
 
-app.use(cors());
-app.use(express.json());
-app.use(routes);
+    constructor (){
+        this.server = express();
+        this.router();
+        this.middleares();
+    }
 
+    private router(): void {
+        this.server.use("/Pontualiza/v1",router);
+    }
 
-export default app;
+    private middleares(): void{
+        this.server.use(cors());
+        this.server.use(express.json());
+    }
+}
+
+export default new App().server;

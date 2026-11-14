@@ -19,7 +19,7 @@ router.get('/health', (_req, res) => {
 });
 
 router.use("/funcionario",FuncRouter);
-router.use("/Administrador",AdminRouter);
+router.use("/administrador",AdminRouter);
 router.use("/funcionario_ponto",PontoRouter);
 router.use("/usuario",FuncRouter);
 
